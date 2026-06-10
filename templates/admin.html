@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <hr>
+
+    <h3>Total Tickets: {{ total }}</h3>
+
+    <h3>Open Tickets: {{ open_tickets }}</h3>
+
+    <h3>Closed Tickets: {{ closed_tickets }}</h3>
+
+    <hr>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Issue</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        {% for ticket in tickets %}
+
+        <tr>
+            <td>{{ ticket[0] }}</td>
+            <td>{{ ticket[1] }}</td>
+            <td>{{ ticket[2] }}</td>
+            <td>{{ ticket[3] }}</td>
+            <td>
+                {% if ticket[3]=='Open' %}
+
+                <form action="/close/{{ ticket[0] }}" method="post">
+                    <button type="submit">Close Ticket</button>
+                </form>
+
+                {% else %}
+                Closed
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <form action="/search>
+    
+    <input
+     name="keyword"
+     placeholder="Search Customer"
+     >
+
+     <button>Search</button>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,41 @@
+body{
+    font-family: Arial;
+    margin:40px;
+}
+
+h1{
+    color:blue;
+}
+
+button{
+    padding:10px 20px;
+}
+
+body{
+    font-family: Arial;
+    margin:40px;
+}
+
+h1{
+    color:#0078d7;
+}
+
+table{
+    border-collapse:collapse;
+    width:100%;
+}
+
+th,td{
+    padding:12px;
+    text-align:left;
+}
+
+th{
+    background:#0078d7;
+    color:white;
+}
+
+button{
+    padding:8px 15px;
+    cursor:pointer;
+}
